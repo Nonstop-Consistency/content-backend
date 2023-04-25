@@ -23,6 +23,7 @@ if (process.env.NODE_ENV == "production") {
   dbConfig.connection.socketPath = process.env.GAE_DB_ADDRESS;
 } else if (process.env.NODE_ENV == "production-cloud-run") {
   dbConfig.connection.host = process.env.CLOUD_SQL_HOST;
+  dbConfig.connection.socketPath = process.env.GAE_DB_ADDRESS;
 } else {
   dbConfig.connection.host = "127.0.0.1";
 }
@@ -31,13 +32,11 @@ const knex = require("knex")(dbConfig);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", async (req, res) => {
-  const result = await knex.select().table("exampletable");
+app.get("/", (req, res) => {
   res.json({
     success: true,
     message: "success bang",
     tes: "test",
-    result,
   });
 });
 
