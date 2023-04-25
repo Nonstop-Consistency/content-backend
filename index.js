@@ -17,9 +17,10 @@ let dbConfig = {
     database: "content-db",
   },
 };
-
+let success = "false";
 if (process.env.NODE_ENV == "production") {
   dbConfig.connection.socketPath = process.env.GAE_DB_ADDRESS;
+  success = "true";
 } else {
   dbConfig.connection.host = "127.0.0.1";
 }
@@ -29,7 +30,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  console.log(dbConfig.connection.socketPath);
+  console.log(success);
   res.json({ success: true, message: "success bang" });
 });
 
