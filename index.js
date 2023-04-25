@@ -17,10 +17,10 @@ let dbConfig = {
     database: "content-db",
   },
 };
-let success = "false";
+let success = false;
 if (process.env.NODE_ENV == "production") {
   dbConfig.connection.socketPath = process.env.GAE_DB_ADDRESS;
-  success = "true";
+  success = true;
 } else {
   dbConfig.connection.host = "127.0.0.1";
 }
@@ -30,12 +30,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  console.log(success);
-  res.json({ success: true, message: "success bang" });
+  res.json({ success: success, message: "success bang" });
 });
 
 app.get("/content", async (req, res) => {
-  console.log(success);
   const result = await knex.select().table("exampletable");
   res.json(result);
 });
