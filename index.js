@@ -29,8 +29,14 @@ const knex = require("knex")(dbConfig);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.json({ success: success, message: "success bang", tes: "test" });
+app.get("/", async (req, res) => {
+  const result = await knex.select().table("exampletable");
+  res.json({
+    success: success,
+    message: "success bang",
+    tes: "test",
+    result,
+  });
 });
 
 app.get("/content", async (req, res) => {
