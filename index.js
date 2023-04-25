@@ -35,9 +35,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/content", async (req, res) => {
+  console.log(success);
   const result = await knex.select().table("exampletable");
   res.json(result);
 });
+
 app.post("/content", async (req, res) => {
   await knex
     .insert({ content: req.body.content })
