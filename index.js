@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.json({ success: success, message: "success bang" });
+  res.json({ success: success, message: "success bang", tes: "test" });
 });
 
 app.get("/content", async (req, res) => {
