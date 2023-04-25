@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.send("Tugas App Engine");
+  res.json({ success: true, message: "success" });
 });
 
 app.get("/content", async (req, res) => {
