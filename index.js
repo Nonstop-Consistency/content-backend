@@ -15,6 +15,7 @@ let dbConfig = {
     // password: "testuserpwd1",
     password: "root123",
     database: "content-db",
+    requestTimeout: 600000,
   },
 };
 
