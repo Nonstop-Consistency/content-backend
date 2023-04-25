@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.json({ success: true, message: "success" });
+  res.json({ success: true, message: "success bang" });
 });
 
 app.get("/content", async (req, res) => {
