@@ -17,12 +17,12 @@ let dbConfig = {
     database: "content-db",
   },
 };
-let success = false;
+
 if (process.env.NODE_ENV == "production") {
   dbConfig.connection.socketPath = process.env.GAE_DB_ADDRESS;
-  success = true;
+} else if (process.env.NODE_ENV == "production-cloud-run") {
+  dbConfig.connection.host = process.env.CLOUD_SQL_HOST;
 } else {
-  success = false;
   dbConfig.connection.host = "127.0.0.1";
 }
 
