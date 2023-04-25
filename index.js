@@ -15,8 +15,8 @@ let dbConfig = {
     // password: "testuserpwd1",
     password: "root123",
     database: "content-db",
-    requestTimeout: 600000,
   },
+  acquireConnectionTimeout: 60000,
 };
 
 if (process.env.NODE_ENV == "production") {
@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", async (req, res) => {
   const result = await knex.select().table("exampletable");
   res.json({
-    success: success,
+    success: true,
     message: "success bang",
     tes: "test",
     result,
