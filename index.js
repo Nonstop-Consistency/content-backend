@@ -22,6 +22,7 @@ if (process.env.NODE_ENV == "production") {
   dbConfig.connection.socketPath = process.env.GAE_DB_ADDRESS;
   success = true;
 } else {
+  success = false;
   dbConfig.connection.host = "127.0.0.1";
 }
 
