@@ -16,7 +16,7 @@ let dbConfig = {
     password: "root123",
     database: "content-db",
   },
-  acquireConnectionTimeout: 60000,
+  acquireConnectionTimeout: 600000,
 };
 
 if (process.env.NODE_ENV == "production") {
