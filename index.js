@@ -32,6 +32,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", async (req, res) => {
   const result = await knex.select().table("exampletable");
   res.json({
+    success: success,
+    message: "success bang",
+    tes: "test",
     result,
   });
 });
