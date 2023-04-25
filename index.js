@@ -29,6 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
+  console.log(dbConfig.connection.socketPath);
   res.json({ success: true, message: "success bang" });
 });
 
