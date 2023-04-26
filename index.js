@@ -36,7 +36,7 @@ app.get("/", async (req, res) => {
   res.json({
     success: true,
     message: "success bang",
-    tes: "test",
+    branch: "master",
   });
 });
 
